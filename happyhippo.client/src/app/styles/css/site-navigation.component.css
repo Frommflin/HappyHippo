@@ -1,0 +1,22 @@
+nav {
+  margin-bottom: 20px;
+}
+nav .navbar-brand {
+  margin-right: 50px;
+}
+nav #navbarNav {
+  justify-content: space-between;
+}
+nav .nav-link {
+  display: inline;
+  margin-right: 25px;
+  padding-left: 0;
+}
+nav .nav-icon {
+  margin-right: 5px;
+}
+nav .active {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=site-navigation.component.css.map */
