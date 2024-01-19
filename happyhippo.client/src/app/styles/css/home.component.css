@@ -1,3 +1,24 @@
+#homepage {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+#homepage div {
+  display: inline;
+}
 
+@media (min-width: 1200px) {
+  #homepage {
+    align-items: center;
+  }
+  #hippo {
+    margin-right: 10px;
+  }
+  #message {
+    max-width: 750px;
+  }
+}
 
 /*# sourceMappingURL=home.component.css.map */
