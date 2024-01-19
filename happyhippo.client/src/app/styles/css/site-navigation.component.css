@@ -1,4 +1,5 @@
 nav {
+  background-color: #633B48;
   margin-bottom: 20px;
 }
 nav .navbar-brand {
@@ -13,9 +14,11 @@ nav .nav-link {
   padding-left: 0;
 }
 nav .nav-icon {
+  color: #EFB8C8;
   margin-right: 5px;
 }
 nav .active {
+  color: #EFB8C8;
   font-weight: bold;
 }
 

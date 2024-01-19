@@ -1,10 +1,14 @@
 .hippo-card {
-  border: 1px solid black;
+  border: 1px solid #492532;
+  border-radius: 10px;
   display: flex;
-  padding: 5px;
-  margin: 5px;
+  padding: 10px;
+  margin: 10px;
   justify-content: space-between;
   height: fit-content;
+  background-color: #633B48;
+  color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.6) 5px 10px 20px, rgba(0, 0, 0, 0.3) 0px 10px 10px;
 }
 .hippo-card .ed-buttons {
   display: flex;
@@ -24,6 +28,36 @@
 
 form button {
   margin-top: 10px;
+}
+form .input-group {
+  margin-bottom: 3px;
+}
+form .form-control {
+  border-color: #492532;
+}
+form .input-group-text {
+  background-color: #492532;
+  color: #FFFFFF;
+  border-radius: 10px 0 0 10px;
+}
+
+.btn {
+  color: white;
+  background-color: #633B48;
+  border-color: #492532;
+}
+.btn:active {
+  color: white;
+  background-color: #492532;
+  border-color: #633B48;
+}
+.btn:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #EFB8C8;
+}
+.btn:hover {
+  color: #492532;
+  background-color: #EFB8C8;
+  border-color: #633B48;
 }
 
 /*# sourceMappingURL=styles.css.map */
