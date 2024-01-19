@@ -12,7 +12,6 @@ import { QuoteComponent } from './components/quote/quote.component';
 import { SiteNavigationComponent } from './components/site-navigation/site-navigation.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { RegisterComponent } from './components/register/register.component';
-import { BookFormComponent } from './components/book-form/book-form.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import { BookFormComponent } from './components/book-form/book-form.component';
     QuoteComponent,
     SiteNavigationComponent,
     SignInComponent,
-    RegisterComponent,
-    BookFormComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule
