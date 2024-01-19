@@ -1,0 +1,16 @@
+.quote-card {
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+.quote-card .quote {
+  width: 90%;
+}
+.quote-card .quote q {
+  font-style: italic;
+}
+.quote-card .quote div {
+  text-align: right;
+  margin-right: 50px;
+}
+
+/*# sourceMappingURL=quote.component.css.map */

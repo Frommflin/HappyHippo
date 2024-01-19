@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { QuoteCatalogComponent } from './components/quote-catalog/quote-catalog.component';
 import { BookCatalogComponent } from './components/book-catalog/book-catalog.component';
 import { BookComponent } from './components/book/book.component';
+import { QuoteComponent } from './components/quote/quote.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BookComponent } from './components/book/book.component';
     HomeComponent,
     QuoteCatalogComponent,
     BookCatalogComponent,
-    BookComponent
+    BookComponent,
+    QuoteComponent
   ],
   imports: [
     BrowserModule, HttpClientModule
