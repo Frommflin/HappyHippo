@@ -13,4 +13,17 @@
   row-gap: 5px;
 }
 
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  max-width: 600px;
+}
+
+form button {
+  margin-top: 10px;
+}
+
 /*# sourceMappingURL=styles.css.map */

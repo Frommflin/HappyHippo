@@ -10,6 +10,8 @@ import { BookCatalogComponent } from './components/book-catalog/book-catalog.com
 import { BookComponent } from './components/book/book.component';
 import { QuoteComponent } from './components/quote/quote.component';
 import { SiteNavigationComponent } from './components/site-navigation/site-navigation.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SiteNavigationComponent } from './components/site-navigation/site-navig
     BookCatalogComponent,
     BookComponent,
     QuoteComponent,
-    SiteNavigationComponent
+    SiteNavigationComponent,
+    SignInComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule
