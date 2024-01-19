@@ -1,0 +1,16 @@
+.book-card {
+  width: 85vw;
+}
+
+@media (min-width: 576px) {
+  .book-card {
+    width: 46vw;
+  }
+}
+@media (min-width: 992px) {
+  .book-card {
+    width: 31vw;
+  }
+}
+
+/*# sourceMappingURL=book.component.css.map */

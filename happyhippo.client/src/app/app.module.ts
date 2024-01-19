@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { QuoteCatalogComponent } from './components/quote-catalog/quote-catalog.component';
 import { BookCatalogComponent } from './components/book-catalog/book-catalog.component';
+import { BookComponent } from './components/book/book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     QuoteCatalogComponent,
-    BookCatalogComponent
+    BookCatalogComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule, HttpClientModule

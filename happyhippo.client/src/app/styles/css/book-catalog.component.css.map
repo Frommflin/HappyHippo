@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"book-catalog.component.css"}
+{"version":3,"sourceRoot":"","sources":["../sass/book-catalog.component.sass"],"names":[],"mappings":"AAGA;EACE;;;AAEF;EACE;EACA;EACA;EACA;;;AAEF;EACE;IACE;;EACF;IACE;;;AAEJ;EACE;IACE","file":"book-catalog.component.css"}

@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+.hippo-card {
+  border: 1px solid black;
+  display: flex;
+  padding: 5px;
+  margin: 5px;
+  justify-content: space-between;
+  height: fit-content;
+}
+.hippo-card .ed-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  row-gap: 5px;
+}
+
+/*# sourceMappingURL=styles.css.map */
