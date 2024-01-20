@@ -1,23 +1,26 @@
 <div class="container form-container">
-  <form>
+  <form (ngSubmit)="createAccount()" >
     <h1>Create a new account</h1>
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">Username</span>
       </div>
-      <input name="username" type="text" class="form-control" required>
+      <input name="username" [(ngModel)]="username" type="text" class="form-control" required>
     </div>
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">Password</span>
       </div>
-      <input name="password" type="password" class="form-control" required>
+      <input name="password" #password1="ngModel" [(ngModel)]="password" type="password" class="form-control" required>
     </div>
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">Confirm password</span>
       </div>
-      <input name="confirmPassword" type="password" class="form-control" required>
+      <input name="confirmPassword" #password2="ngModel" [(ngModel)]="confirmPassword" type="password" class="form-control" required>
+    </div>
+    <div *ngIf="password2.touched && password2.value != password1.value">
+      Passwords doesn't match
     </div>
     <button class="btn"> Create &amp; Sign In </button>
   </form>

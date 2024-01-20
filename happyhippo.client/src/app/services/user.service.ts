@@ -30,4 +30,12 @@ export class UserService {
   signOut() {
     this.user.next(null);
   }
+
+  createUser(credentials: IUser): Observable<IUser> {
+    return this.http.post<IUser>('/happyhippouser', credentials)
+      .pipe(map((response: IUser) => {
+        this.user.next(response);
+        return response;
+      }));
+  }
 }

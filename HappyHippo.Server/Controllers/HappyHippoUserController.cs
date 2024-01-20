@@ -36,5 +36,14 @@ namespace HappyHippo.Server.Controllers
             return Ok(user);
         }
 
+        // POST: HappyHippoUser
+        [HttpPost]
+        public async Task<IActionResult> CreateUser(User user)
+        {
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetUser), new { id = user.Username }, user);
+        }
     }
 }
