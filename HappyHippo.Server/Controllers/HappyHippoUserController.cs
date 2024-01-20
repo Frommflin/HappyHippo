@@ -22,22 +22,22 @@ namespace HappyHippo.Server.Controllers
         }
 
         // GET: HappyHippoUser/5
-        [HttpGet("{id}")]
+        [HttpPost("login")]
         [ActionName("GetUser")]
-        public async Task<ActionResult<User>> GetUser(string id)
+        public async Task<ActionResult<User>> GetUser(User request)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == id);
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == request.Username);
 
-            if (user == null)
+            if(user == null || user.Password != request.Password)
             {
-                return NotFound();
+                return BadRequest();
             }
 
             return Ok(user);
         }
 
         // POST: HappyHippoUser
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<IActionResult> CreateUser(User user)
         {
             await _context.Users.AddAsync(user);

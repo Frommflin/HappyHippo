@@ -18,11 +18,9 @@ export class UserService {
   }
 
   signIn(credentials: IUser): Observable<IUser> {
-    return this.http.get<IUser>('/happyhippouser/' + credentials.username)
+    return this.http.post<IUser>('/happyhippouser/login', credentials)
       .pipe(map((response: IUser) => {
-        if (response.password == credentials.password) {
-          this.user.next(response);
-        }
+        this.user.next(response);
         return response;
       }));
   }
@@ -32,7 +30,7 @@ export class UserService {
   }
 
   createUser(credentials: IUser): Observable<IUser> {
-    return this.http.post<IUser>('/happyhippouser', credentials)
+    return this.http.post<IUser>('/happyhippouser/register', credentials)
       .pipe(map((response: IUser) => {
         this.user.next(response);
         return response;
