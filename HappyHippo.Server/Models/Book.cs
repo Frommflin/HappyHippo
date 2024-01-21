@@ -1,10 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HappyHippo.Server.Models
 {
     public class Book
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required]
         public string Title { get; set; }
 
         [Required]
@@ -15,6 +20,5 @@ namespace HappyHippo.Server.Models
 
         [Required]
         public string UserId { get; set; }
-        public User User { get; set; }
     }
 }

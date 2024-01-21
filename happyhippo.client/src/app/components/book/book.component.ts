@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IBookId } from '../../models/book.model';
 
 @Component({
   selector: 'hippo-book',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['../../styles/css/book.component.css']
 })
 export class BookComponent {
+  @Input() bookDetails!: IBookId;
 
 }

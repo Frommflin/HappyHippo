@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HappyHippo.Server.Data;
 using HappyHippo.Server.Models;
+using Azure.Core;
 
 namespace HappyHippo.Server.Controllers
 {
@@ -21,7 +22,7 @@ namespace HappyHippo.Server.Controllers
             _context = context;
         }
 
-        // GET: HappyHippoUser/5
+        // POST: HappyHippoUser/login
         [HttpPost("login")]
         [ActionName("GetUser")]
         public async Task<ActionResult<User>> GetUser(User request)
@@ -36,7 +37,7 @@ namespace HappyHippo.Server.Controllers
             return Ok(user);
         }
 
-        // POST: HappyHippoUser
+        // POST: HappyHippoUser/register
         [HttpPost("register")]
         public async Task<IActionResult> CreateUser(User user)
         {
@@ -45,5 +46,6 @@ namespace HappyHippo.Server.Controllers
 
             return CreatedAtAction(nameof(GetUser), new { id = user.Username }, user);
         }
+
     }
 }
