@@ -23,7 +23,7 @@ export class BookService {
     return this.http.post<IBookId>('/happyhippobooks/addbook', book);
   }
 
-  editBook(id: number, book: IBook): Observable<IBookId>{
+  editBook(id: number, book: IBook): Observable<IBookId> {
     let bookToEdit: IBookId = {
       id: id,
       title: book.title,
@@ -33,5 +33,9 @@ export class BookService {
     };
 
     return this.http.put<IBookId>('/happyhippobooks/edit/' + id, bookToEdit);
+  }
+
+  deleteBook(id: number): Observable<IBookId> {
+    return this.http.delete<IBookId>('/happyhippobooks/delete/' + id);
   }
 }

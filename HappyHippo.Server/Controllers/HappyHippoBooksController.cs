@@ -25,7 +25,6 @@ namespace HappyHippo.Server.Controllers
 
         // POST: HappyHippoBooks/getbooks/user
         [HttpPost("getbooks/{user}")]
-        [ActionName("GetBooks")]
         public async Task<ActionResult<IEnumerable<Book>>> GetBooks(string user)
         {
             var books = _context.Books.Where(x => x.UserId == user);
@@ -79,7 +78,7 @@ namespace HappyHippo.Server.Controllers
                 return BadRequest();
             }
 
-            var existingBook = await _context.Books.FindAsync(id);
+            var existingBook = await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
 
             if (existingBook == null)
             {
@@ -95,5 +94,20 @@ namespace HappyHippo.Server.Controllers
             return Ok(existingBook);
         }
 
+        // DELETE: HappyHippoBooks/delete/5
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteBook(int id)
+        {
+            var book = await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            _context.Books.Remove(book);
+            await _context.SaveChangesAsync();
+
+            return Ok(book);
+        }
     }
 }

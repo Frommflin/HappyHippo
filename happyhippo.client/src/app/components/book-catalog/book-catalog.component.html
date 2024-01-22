@@ -6,6 +6,6 @@
   </button>
 
   <div id="book-window">
-    <hippo-book *ngFor="let book of books" [bookDetails]="book" ></hippo-book>
+    <hippo-book *ngFor="let book of books" [bookDetails]="book" (delete)="deleteBook(book)"></hippo-book>
   </div>
 </div>

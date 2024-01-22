@@ -37,4 +37,10 @@ export class BookCatalogComponent implements OnInit {
     })
   }
 
+  deleteBook(book: IBookId){
+    this.bookService.deleteBook(book.id).subscribe({
+      next: () => this.collectBooks()
+    })
+  }
+
 }

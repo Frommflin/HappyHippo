@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IBookId } from '../../models/book.model';
 
 @Component({
@@ -8,5 +8,9 @@ import { IBookId } from '../../models/book.model';
 })
 export class BookComponent {
   @Input() bookDetails!: IBookId;
+  @Output() delete = new EventEmitter();
 
+  deleteClicked(){
+    this.delete.emit();
+  }
 }
