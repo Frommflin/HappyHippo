@@ -52,5 +52,43 @@ namespace HappyHippo.Server.Controllers
 
             return Ok(newQuote);
         }
+
+        // GET: HappyHippoQuotes/getquote/5
+        [HttpGet("getquote/{id}")]
+        public async Task<ActionResult<Quote>> GetQuote(int id)
+        {
+            var quote = await _context.Quotes.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (quote == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(quote);
+        }
+
+        // PUT: HappyHippoQuotes/edit/5
+        [HttpPut("edit/{id}")]
+        public async Task<IActionResult> PutQuote([FromRoute]int id, Quote quote)
+        {
+            if (id != quote.Id)
+            {
+                return BadRequest();
+            }
+
+            var existingQuote = await _context.Quotes.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (existingQuote == null)
+            {
+                return NotFound();
+            }
+
+            existingQuote.QuoteText = quote.QuoteText;
+            existingQuote.Author = quote.Author;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(existingQuote);
+        }
     }
 }

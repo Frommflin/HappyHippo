@@ -4,7 +4,9 @@
     <div>- {{quoteDetails.author}}</div>
   </div>
   <div class="ed-buttons">
-    <button><span class="fa-solid fa-pen-to-square"></span></button>
+    <a routerLink="/quotes/edit" [queryParams]="{id: quoteDetails.id}" class="btn">
+      <span class="fa-solid fa-pen-to-square"></span>
+    </a>
     <button><span class="fa-solid fa-trash-can"></span></button>
   </div>
 </div>
