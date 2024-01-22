@@ -15,6 +15,5 @@ namespace HappyHippo.Server.Models
 
         [Required]
         public string UserId { get; set; }
-        public User User { get; set; }
     }
 }

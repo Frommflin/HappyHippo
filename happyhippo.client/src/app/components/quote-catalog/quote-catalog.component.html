@@ -1,14 +1,10 @@
 <div class="container-fluid">
   <h1>My Quotes</h1>
-  <button routerLink="/quotes/edit" id="new-quote" class="btn">
+  <a routerLink="/quotes/edit" id="new-quote" class="btn">
     <span class="fa-solid fa-quote-right fa-lg"></span>
     Add new Quote
-  </button>
+  </a>
   <div id="quote-window">
-    <hippo-quote></hippo-quote>
-    <hippo-quote></hippo-quote>
-    <hippo-quote></hippo-quote>
-    <hippo-quote></hippo-quote>
-    <hippo-quote></hippo-quote>
+    <hippo-quote *ngFor="let quote of quotes" [quoteDetails]="quote"></hippo-quote>
   </div>
 </div>

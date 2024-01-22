@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IQuoteId } from 'src/app/models/quote.model';
 
 @Component({
   selector: 'hippo-quote',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['../../styles/css/quote.component.css']
 })
 export class QuoteComponent {
+  @Input() quoteDetails!: IQuoteId
 
 }
