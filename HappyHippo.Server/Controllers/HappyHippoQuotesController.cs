@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HappyHippo.Server.Data;
 using HappyHippo.Server.Models;
+using HappyHippo.Server.DTO;
 
 namespace HappyHippo.Server.Controllers
 {
@@ -36,5 +37,20 @@ namespace HappyHippo.Server.Controllers
             return Ok(quotes);
         }
 
+        // POST: HappyHippoQuotes/addquote
+        [HttpPost("addquote")]
+        public async Task<ActionResult<Quote>> PostQuote(QuoteRequest quote)
+        {
+            var newQuote = new Quote();
+            newQuote.QuoteText = quote.QuoteText;
+            newQuote.Author = quote.Author;
+            newQuote.UserId = quote.UserId;
+
+
+            await _context.Quotes.AddAsync(newQuote);
+            await _context.SaveChangesAsync();
+
+            return Ok(newQuote);
+        }
     }
 }

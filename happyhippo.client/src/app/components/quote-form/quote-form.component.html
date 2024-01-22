@@ -1,17 +1,17 @@
 <div class="container">
-  <form class="form">
-    <h1>Quote Form</h1>
+  <form class="form" (ngSubmit)="addNewQuote()">
+    <h1>Add New Quote</h1>
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">Quote</span>
       </div>
-      <input name="quote"type="text" class="form-control" required>
+      <input name="quoteText" [(ngModel)]="quote.quoteText" type="text" class="form-control" required>
     </div>
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">Coined By</span>
       </div>
-      <input name="author" type="text" class="form-control" required>
+      <input name="author" [(ngModel)]="quote.author" type="text" class="form-control" required>
     </div>
     <button class="btn">Save quote</button>
   </form>
