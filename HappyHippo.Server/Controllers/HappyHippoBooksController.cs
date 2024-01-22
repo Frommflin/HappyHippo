@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HappyHippo.Server.Data;
 using HappyHippo.Server.Models;
+using HappyHippo.Server.DTO;
 
 namespace HappyHippo.Server.Controllers
 {
@@ -36,5 +37,23 @@ namespace HappyHippo.Server.Controllers
             await books.ToListAsync();
             return Ok(books);
         }
+
+        // POST: HappyHippoBooks/addbook
+        [HttpPost("addbook")]
+        public async Task<ActionResult<Book>> AddBook(BookRequest book)
+        {
+            var newBook = new Book();
+
+            newBook.Title = book.Title;
+            newBook.Author = book.Author;
+            newBook.Year = book.Year;
+            newBook.UserId = book.UserId;
+
+            await _context.Books.AddAsync(newBook);
+            await _context.SaveChangesAsync();
+
+            return Ok(newBook);
+        }
+
     }
 }

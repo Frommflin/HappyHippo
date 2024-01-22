@@ -2,7 +2,7 @@ export interface IBook {
   title: string;
   author: string;
   year: number;
-  user: string;
+  userId: string;
 }
 
 export interface IBookId {
@@ -10,5 +10,5 @@ export interface IBookId {
   title: string;
   author: string;
   year: number;
-  user: string;
+  userId: string;
 }

@@ -19,7 +19,9 @@ export class BookCatalogComponent implements OnInit {
   ngOnInit() {
     this.userService.getUser().subscribe({
       next: (response) => {
-        if (response != null) {
+        if (response == null) {
+          this.router.navigate(['/home'])
+        }else{
           this.user = response.username
         }
       }
