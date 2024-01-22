@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using HappyHippo.Server.Data;
 using HappyHippo.Server.Models;
 using HappyHippo.Server.DTO;
+using Azure.Core;
 
 namespace HappyHippo.Server.Controllers
 {
@@ -53,6 +54,45 @@ namespace HappyHippo.Server.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(newBook);
+        }
+
+        // GET:  HappyHippoBooks/getbook/5
+        [HttpGet("getbook/{id}")]
+        public async Task<ActionResult<Book>> GetBookById(int id)
+        {
+            var book = await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(book);
+        }
+
+        // PUT: HappyHippoBooks/edit/5
+        [HttpPut("edit/{id}")]
+        public async Task<IActionResult> EditBook([FromRoute] int id, Book book)
+        {
+            if (id != book.Id)
+            {
+                return BadRequest();
+            }
+
+            var existingBook = await _context.Books.FindAsync(id);
+
+            if (existingBook == null)
+            {
+                return NotFound();
+            }
+
+            existingBook.Title = book.Title;
+            existingBook.Author = book.Author;
+            existingBook.Year = book.Year;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(existingBook);
         }
 
     }

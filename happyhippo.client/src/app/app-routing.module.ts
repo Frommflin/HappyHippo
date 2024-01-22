@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'quotes', component: QuoteCatalogComponent, title: 'Happy Hippo´s Quotes' },
   { path: 'signin', component: SignInComponent, title: 'Happy Hippo - Sign In' },
   { path: 'register', component: RegisterComponent, title: 'Happy Hippo - Register' },
-  { path: 'books/edit', component: BookFormComponent, title: 'Happy Hippo - New book' },
+  { path: 'books/edit', component: BookFormComponent, title: 'Happy Hippo´s Books' },
   { path: 'quotes/edit', component: QuoteFormComponent, title: 'Happy Hippo´s Quotes' },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

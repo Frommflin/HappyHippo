@@ -15,7 +15,23 @@ export class BookService {
     return this.http.post<IBookId[]>('/happyhippobooks/getbooks/' + user, user);
   }
 
+  getBookById(id: number): Observable<IBookId>{
+    return this.http.get<IBookId>('/happyhippobooks/getbook/' + id);
+  }
+
   addBook(book: IBook): Observable<IBookId> {
     return this.http.post<IBookId>('/happyhippobooks/addbook', book);
+  }
+
+  editBook(id: number, book: IBook): Observable<IBookId>{
+    let bookToEdit: IBookId = {
+      id: id,
+      title: book.title,
+      author: book.author,
+      year: book.year,
+      userId: book.userId
+    };
+
+    return this.http.put<IBookId>('/happyhippobooks/edit/' + id, bookToEdit);
   }
 }

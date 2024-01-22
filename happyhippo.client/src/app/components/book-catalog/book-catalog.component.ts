@@ -23,11 +23,10 @@ export class BookCatalogComponent implements OnInit {
           this.router.navigate(['/home'])
         }else{
           this.user = response.username
+          this.collectBooks();
         }
       }
     })
-
-    this.collectBooks();
   }
 
   collectBooks() {

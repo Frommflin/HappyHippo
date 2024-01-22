@@ -5,7 +5,9 @@
     <div>Year of publication: {{bookDetails.year}}</div>
   </div>
   <div class="ed-buttons">
-    <button><span class="fa-solid fa-pen-to-square"></span></button>
+    <a routerLink="/books/edit" [queryParams]="{id: bookDetails.id}">
+      <span class="fa-solid fa-pen-to-square"></span>
+    </a>
     <button><span class="fa-solid fa-trash-can"></span></button>
   </div>
 </div>
