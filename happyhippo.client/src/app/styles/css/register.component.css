@@ -1,3 +1,6 @@
+form {
+  width: 400px;
+}
 form .input-group-text {
   width: 155px;
 }

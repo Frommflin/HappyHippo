@@ -60,4 +60,8 @@ form .input-group-text {
   border-color: #633B48;
 }
 
+.validationError {
+  color: #B00020;
+}
+
 /*# sourceMappingURL=styles.css.map */

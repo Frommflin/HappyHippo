@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="form">
+  <form #quoteForm="ngForm" class="form">
     <h1 *ngIf="newQuote">Add New Quote</h1>
     <h1 *ngIf="!newQuote">Edit Quote</h1>
     <div class="input-group">
@@ -14,7 +14,7 @@
       </div>
       <input name="author" [(ngModel)]="quote.author" type="text" class="form-control" required>
     </div>
-    <button class="btn" *ngIf="newQuote" (click)="addNewQuote()">Save quote</button>
+    <button class="btn" *ngIf="newQuote" [disabled]="quoteForm.form.invalid" (click)="addNewQuote()">Save quote</button>
     <button class="btn" *ngIf="!newQuote" (click)="editQuote()" >Save changes</button>
   </form>
 </div>
