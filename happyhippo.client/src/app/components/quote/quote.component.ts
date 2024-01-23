@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IQuoteId } from 'src/app/models/quote.model';
 
 @Component({
@@ -8,5 +8,10 @@ import { IQuoteId } from 'src/app/models/quote.model';
 })
 export class QuoteComponent {
   @Input() quoteDetails!: IQuoteId
+  @Output() delete = new EventEmitter();
+
+  deleteClicked(){
+    this.delete.emit();
+  }
 
 }

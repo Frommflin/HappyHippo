@@ -5,6 +5,6 @@
     Add new Quote
   </a>
   <div id="quote-window">
-    <hippo-quote *ngFor="let quote of quotes" [quoteDetails]="quote"></hippo-quote>
+    <hippo-quote *ngFor="let quote of quotes" [quoteDetails]="quote" (delete)="deleteQuote(quote)"></hippo-quote>
   </div>
 </div>

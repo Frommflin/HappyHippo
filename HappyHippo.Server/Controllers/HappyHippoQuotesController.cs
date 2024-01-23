@@ -90,5 +90,21 @@ namespace HappyHippo.Server.Controllers
 
             return Ok(existingQuote);
         }
+
+        // DELETE: HappyHippoQuotes/delete/5
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteQuote(int id)
+        {
+            var quote = await _context.Quotes.FirstOrDefaultAsync(x => x.Id == id);
+            if (quote == null)
+            {
+                return NotFound();
+            }
+
+            _context.Quotes.Remove(quote);
+            await _context.SaveChangesAsync();
+
+            return Ok(quote);
+        }
     }
 }

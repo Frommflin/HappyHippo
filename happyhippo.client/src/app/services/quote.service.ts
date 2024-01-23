@@ -32,4 +32,8 @@ export class QuoteService {
 
     return this.http.put<IQuoteId>('/happyhippoquotes/edit/' + id, quoteToEdit);
   }
+
+  deleteQuote(id: number): Observable<IQuoteId> {
+    return this.http.delete<IQuoteId>('/happyhippoquotes/delete/' + id);
+  }
 }

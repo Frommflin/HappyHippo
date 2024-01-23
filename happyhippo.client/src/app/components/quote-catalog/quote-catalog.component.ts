@@ -22,17 +22,23 @@ export class QuoteCatalogComponent implements OnInit {
           this.router.navigate(['/home'])
         }else{
           this.user = response.username
-          this.collectquotes()
+          this.collectQuotes()
         }
       }
     })
   }
 
-  collectquotes() {
+  collectQuotes() {
     this.quoteService.getQuotes(this.user).subscribe({
       next: (response) => {
         this.quotes = response
       }
+    })
+  }
+
+  deleteQuote(quote: IQuoteId){
+    this.quoteService.deleteQuote(quote.id).subscribe({
+      next: () => this.collectQuotes()
     })
   }
 }
