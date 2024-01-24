@@ -8,11 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using HappyHippo.Server.Data;
 using HappyHippo.Server.Models;
 using HappyHippo.Server.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HappyHippo.Server.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class HappyHippoQuotesController : ControllerBase
     {
         private readonly DataContext _context;
