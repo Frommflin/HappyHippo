@@ -18,10 +18,10 @@ export class QuoteCatalogComponent implements OnInit {
   ngOnInit() {
     this.userService.getUser().subscribe({
       next: (response) => {
-        if (response == null) {
+        if (response == null || response == '') {
           this.router.navigate(['/home'])
-        }else{
-          this.user = response.username
+        } else {
+          this.user = response
           this.collectQuotes()
         }
       }

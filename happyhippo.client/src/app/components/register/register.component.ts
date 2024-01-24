@@ -20,7 +20,10 @@ export class RegisterComponent {
     this.credentials = { username: this.username, password: this.password };
 
     this.userService.createUser(this.credentials).subscribe({
-      next: () => this.router.navigate(['/books'])
+      next: (response) => {
+        localStorage.setItem('authToken', response.token);
+        this.router.navigate(['/books'])
+      }
     });
   }
 }

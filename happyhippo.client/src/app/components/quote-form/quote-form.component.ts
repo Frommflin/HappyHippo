@@ -24,10 +24,10 @@ export class QuoteFormComponent implements OnInit {
   ngOnInit() {
     this.userService.getUser().subscribe({
       next: (response) => {
-        if (response == null) {
+        if (response == null || response == '') {
           this.router.navigate(['/home'])
         } else {
-          this.quote.userId = response.username
+          this.quote.userId = response
         }
       }
     })

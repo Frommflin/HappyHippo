@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +15,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { RegisterComponent } from './components/register/register.component';
 import { BookFormComponent } from './components/book-form/book-form.component';
 import { QuoteFormComponent } from './components/quote-form/quote-form.component';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,11 @@ import { QuoteFormComponent } from './components/quote-form/quote-form.component
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule, FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,26 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { IUser } from '../models/user.model';
+import { IUser, IUserToken } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private user: BehaviorSubject<IUser | null>;
+  private user: BehaviorSubject<string | null>;
 
   constructor(private http: HttpClient) {
-    this.user = new BehaviorSubject<IUser | null>(null);
+    this.user = new BehaviorSubject<string | null>(null);
   }
 
-  getUser(): Observable<IUser | null> {
+  getUser(): Observable<string | null> {
     return this.user;
   }
 
-  signIn(credentials: IUser): Observable<IUser> {
-    return this.http.post<IUser>('/happyhippouser/login', credentials)
-      .pipe(map((response: IUser) => {
-        this.user.next(response);
+  signIn(credentials: IUser): Observable<IUserToken> {
+    return this.http.post<IUserToken>('/happyhippouser/login', credentials)
+      .pipe(map((response: IUserToken) => {
+        this.user.next(response.username);
         return response;
       }));
   }
@@ -29,10 +29,10 @@ export class UserService {
     this.user.next(null);
   }
 
-  createUser(credentials: IUser): Observable<IUser> {
-    return this.http.post<IUser>('/happyhippouser/register', credentials)
-      .pipe(map((response: IUser) => {
-        this.user.next(response);
+  createUser(credentials: IUser): Observable<IUserToken> {
+    return this.http.post<IUserToken>('/happyhippouser/register', credentials)
+      .pipe(map((response: IUserToken) => {
+        this.user.next(response.username);
         return response;
       }));
   }

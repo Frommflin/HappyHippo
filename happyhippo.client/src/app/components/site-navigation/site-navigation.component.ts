@@ -9,20 +9,23 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['../../styles/css/site-navigation.component.css']
 })
 export class SiteNavigationComponent implements OnInit {
-  user: IUser | null = null;
+  user: string | null = null;
 
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.userService.getUser().subscribe({
       next: (response) => {
-        this.user = response
+        if (response != null || response != '') {
+          this.user = response
+        }
       }
-    })
+    });
   }
 
   signOut() {
     this.userService.signOut();
+    localStorage.removeItem('authToken');
     this.router.navigate(['/home'])
   }
 

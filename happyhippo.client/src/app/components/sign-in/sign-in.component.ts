@@ -17,7 +17,10 @@ export class SignInComponent {
   signIn() {
     this.signinerror = false;
     this.userService.signIn(this.credentials).subscribe({
-      next: () => this.router.navigate(['/books']),
+      next: (response) => {
+        localStorage.setItem('authToken', response.token);
+        this.router.navigate(['/books'])
+      },
       error: () => this.signinerror = true
     });
   }

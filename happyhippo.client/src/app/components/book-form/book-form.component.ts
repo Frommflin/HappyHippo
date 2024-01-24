@@ -24,10 +24,10 @@ export class BookFormComponent implements OnInit {
   ngOnInit() {
     this.userService.getUser().subscribe({
       next: (response) => {
-        if (response == null) {
+        if (response == null || response == '') {
           this.router.navigate(['/home'])
         } else {
-          this.book.userId = response.username
+          this.book.userId = response
         }
       }
     })
