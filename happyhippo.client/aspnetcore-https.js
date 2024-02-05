@@ -20,7 +20,7 @@ const certFilePath = path.join(baseFolder, `${certificateName}.pem`);
 const keyFilePath = path.join(baseFolder, `${certificateName}.key`);
 
 if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
-  spawn('dotnet', [
+  spawn('dotnet', ['../HappyHippo.Server/Program.cs'] ,[
     'dev-certs',
     'https',
     '--export-path',
