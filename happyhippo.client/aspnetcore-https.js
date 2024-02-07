@@ -28,11 +28,6 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
     '--format',
     'Pem',
     '--no-password',
-  ], {
-    stdio: 'inherit',
-    env: {
-      PATH: '../HappyHippo.Server/Program.cs'
-    }
-  })
+  ], {stdio: 'inherit'})
   .on('exit', (code) => process.exit(code));
 }
